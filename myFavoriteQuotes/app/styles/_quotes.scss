@@ -1,0 +1,82 @@
+﻿
+/* mixins -> refactor to another file */
+@mixin dashed-border($color){
+    border-color: $color;
+    border-style: dashed;
+}
+
+.quotes {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.quote {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    
+
+    .text{
+        font-style: italic;
+    }
+    .author{
+        font-weight: bold; 
+        text-align: right;
+    }
+
+    .tags{
+        font-size: 0.75em;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+
+        .tag {
+            margin: 0 2px;
+        }
+    }
+}
+
+li.quote {
+    @extend .col-md-offset-2;
+    @extend .col-md-8;
+}
+
+form.quote {
+    @extend .col-md-offset-2;
+    @extend .col-md-8;
+    border: 1px solid #CCC;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px;
+
+    .text {
+        @extend .col-md-12;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        @include dashed-border(#DDD);
+        resize: none;
+    }
+
+    .dash{
+        @extend .col-md-offset-7;
+        @extend .col-md-1;
+        text-align: right;
+    }
+
+    .author {
+        @extend .col-md-4;
+        margin-bottom: 10px;
+        @include dashed-border(#DDD);
+    }
+
+    .tag{
+        @include dashed-border(#DDD);
+    }
+
+    button {
+        @extend .col-md-offset-8;
+        @extend .col-md-2;
+        margin-bottom: 10px;
+    }
+}
+
