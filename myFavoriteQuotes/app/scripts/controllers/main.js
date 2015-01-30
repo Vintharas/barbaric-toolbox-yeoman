@@ -9,21 +9,26 @@
    * # MainCtrl
    * Controller of the myFavoriteQuotesApp
    */
-   myApp.controller('MainCtrl', function ($scope, quotesService) {
-     $scope.tags = '';
-     $scope.quotes = quotesService.getQuotes();
-     $scope.newQuote = quotesService.getNewQuote();
-     $scope.addNewQuote = function addNewQuote() {
-       if ($scope.tags) {
-         $scope.newQuote.tags = $scope.tags.split(',').map(function (tag) { return tag.trim(); });
+   myApp.controller('MainCtrl', function (quotesService) {
+     var self = this;
+
+     function addNewQuote() {
+       if (self.tags) {
+         self.newQuote.tags = self.tags.split(',').map(function (tag) { return tag.trim(); });
        }
-       if (!$scope.newQuote.author) {
-         $scope.newQuote.author = 'Unkown';
+       if (!self.newQuote.author) {
+         self.newQuote.author = 'Unkown';
        }
-       $scope.quotes.unshift($scope.newQuote);
-       $scope.tags = '';
-       $scope.newQuote = quotesService.getNewQuote();
-     };
+       self.quotes.unshift(self.newQuote);
+       self.tags = '';
+       self.newQuote = quotesService.getNewQuote();
+     }
+
+     this.tags = '';
+     this.quotes = quotesService.getQuotes();
+     this.newQuote = quotesService.getNewQuote();
+     this.addNewQuote = addNewQuote;
+
    });
 
 }(window.myApp));

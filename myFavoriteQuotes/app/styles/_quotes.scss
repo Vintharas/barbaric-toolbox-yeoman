@@ -8,22 +8,31 @@
 .quotes {
     margin-top: 12px;
     margin-bottom: 12px;
+
+    .tag:hover {
+        padding: .3em .8em .4em;
+        box-shadow: rgba(0,0,0,0.5) 1px 1px;
+        transition: all ease-in-out 0.1s;
+        cursor: pointer;
+    }
+
 }
 
 .quote {
     font-size: 1.5em;
     margin-bottom: 10px;
-    
 
-    .text{
+
+    .text {
         font-style: italic;
     }
-    .author{
-        font-weight: bold; 
+
+    .author {
+        font-weight: bold;
         text-align: right;
     }
 
-    .tags{
+    .tags {
         font-size: 0.75em;
         position: absolute;
         bottom: 10px;
@@ -32,8 +41,11 @@
         .tag {
             margin: 0 2px;
         }
+
     }
 }
+
+
 
 li.quote {
     @extend .col-md-offset-2;

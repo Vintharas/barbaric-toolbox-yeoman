@@ -8,10 +8,10 @@
 
 <div class="row">
     <form class="quote">
-        <textarea class="form-control text" ng-model="newQuote.text" rows="3" placeholder="I like..."></textarea>
-        <span class="dash">-</span><input type="text" class="form-control author" ng-model="newQuote.author" placeholder="Mr. Smart Dude" />
+        <textarea class="form-control text" ng-model="vm.newQuote.text" rows="3" placeholder="I like..."></textarea>
+        <span class="dash">-</span><input type="text" class="form-control author" ng-model="vm.newQuote.author" placeholder="Mr. Smart Dude" />
         <div>
-            <button type="submit" class="btn btn-primary pull-right" ng-click="addNewQuote()">Add</button>
+            <button type="submit" class="btn btn-primary pull-right" ng-click="vm.addNewQuote()">Add</button>
         </div>
         <div class="tags">
             <input class="form-control tag" type="text" ng-model="tags" placeholder="love, inspiration, life">
@@ -21,7 +21,7 @@
 
 <div class="row quotes">
     <ul class="list-group">
-        <li ng-repeat="quote in quotes" class="quote list-group-item">
+        <li ng-repeat="quote in vm.quotes" class="quote list-group-item">
             <p class="text">{{quote.text}}</p>
             <p class="author">- {{quote.author}}</p>
             <div class="tags">
